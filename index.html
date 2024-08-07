@@ -46,12 +46,12 @@
     }
     .crown {
         position: absolute;
-        bottom: -50px; /* Начинаем анимацию ниже видимой области */
-        font-size: 24px;
-        animation: floatUp infinite 10s linear; /* Бесконечная анимация */
+        bottom: -100px; /* Начинаем анимацию ниже видимой области */
+        font-size: 72px; /* Увеличенный размер смайлика */
+        animation: floatUp infinite linear; /* Бесконечная анимация */
     }
     @keyframes floatUp {
-        from { bottom: -50px; opacity: 1; }
+        from { bottom: -100px; opacity: 1; }
         to { bottom: 100%; opacity: 0; }
     }
 </style>
@@ -83,7 +83,9 @@
             const crown = document.createElement('div');
             crown.classList.add('crown');
             crown.textContent = '👑';
-            crown.style.left = `${10 + i * 8}%`; // Распределение корон по ширине страницы
+            crown.style.left = `${Math.random() * 100}%`; // Случайное расположение по ширине
+            crown.style.animationDuration = `${Math.random() * 5 + 5}s`; // Случайная длительность анимации от 5 до 10 секунд
+            crown.style.animationDelay = `${Math.random() * 3}s`; // Случайная задержка начала анимации
             document.body.appendChild(crown);
         }
     }
